@@ -4,6 +4,7 @@ let newButton = document.querySelector("#newGame-button");
 let msgContainer = document.querySelector(".winner-msg");
 let winnerMsg = document.querySelector(".winner");
 let paraMsg = document.querySelector(".autoPara");
+let bodyAccess = document.querySelector("body");
 
 let turnO = true; //Player O
 let count = 0; // to check draw condition
@@ -17,6 +18,9 @@ let winPatterns = [
   [3, 4, 5],
   [6, 7, 8]
 ];
+
+let xUser = prompt("Enter first player name!");
+let oUser = prompt("Enter second player name!");
 
 boxex.forEach((box) => {
   box.addEventListener("click", () => {
@@ -70,6 +74,12 @@ const enaableBoxex = () => {
 };
 
 const showWinner = (winner) => {
+  if(winner === "X"){
+    winner = xUser;
+  }
+  else{
+    winner = oUser;
+  }
   winnerMsg.innerHTML = `Hurray!! Winner is ${winner}`;
   paraMsg.innerHTML = "Click on New Game button to start a new game!";
 
@@ -99,6 +109,7 @@ const checkWinner = () => {
     } 
   }
 };
+
 
 
 
